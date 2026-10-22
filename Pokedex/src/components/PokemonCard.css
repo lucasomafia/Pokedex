@@ -1,0 +1,122 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 12px;
+    width: 400px;
+    height: 500px;
+    gap: 20px;
+    
+}
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  align-self: center;
+}   
+
+.lista{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: center;
+}
+
+.card-tipos{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.tipo {
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+.tipo-normal {
+  background-color: #A8A878;
+}
+
+.tipo-fire {
+  background-color: #F08030;
+}
+
+.tipo-water {
+  background-color: #6890F0;
+}
+
+.tipo-electric {
+  background-color: #F8D030;
+}
+
+.tipo-grass {
+  background-color: #78C850;
+}
+
+.tipo-ice {
+  background-color: #98D8D8;
+}
+
+.tipo-fighting {
+  background-color: #C03028;
+}
+
+.tipo-poison {
+  background-color: #A040A0;
+}
+
+.tipo-ground {
+  background-color: #E0C068;
+}
+
+.tipo-flying {
+  background-color: #A890F0;
+}
+
+.tipo-psychic {
+  background-color: #F85888;
+}
+
+.tipo-bug {
+  background-color: #A8B820;
+}
+
+.tipo-rock {
+  background-color: #B8A038;
+}
+
+.tipo-ghost {
+  background-color: #705898;
+}
+
+.tipo-dragon {
+  background-color: #7038F8;
+}
+
+.tipo-dark {
+  background-color: #705848;
+}
+
+.tipo-steel {
+  background-color: #B8B8D0;
+}
+
+.tipo-fairy {
+  background-color: #EE99AC;
+}
+.card h2,
+.card h3,
+.card p {
+    margin: 0;
+}
+/* Permite a mesma quantidade de cards por linha da referência. */
+#root { width: 100%; border-inline: 0; }
+.lista { text-align: left; }
+.card { flex: 0 1 400px; min-width: 0; max-width: 100%; height: auto; min-height: 500px; }
+.card img { flex-shrink: 0; }
+.card-tipos { display: flex; flex-wrap: wrap; gap: 20px; }
+@media (max-width: 480px) {
+  .card { box-sizing: border-box; flex-basis: 100%; }
+}

@@ -3,6 +3,9 @@ import data from "./data/pokedex-data.json";
 import SearchBar from "./components/SearchBar";
 import Filters from "./components/Filters";
 import PokemonList from "./components/PokemonList";
+import PokemonDetails from "./components/PokemonDetails";
+import TrainerList from "./components/TrainerList";
+import Header from "./components/Header";
 
 
 function App() {
@@ -11,7 +14,6 @@ function App() {
   const [pokemonSelecionado, setPokemonSelecionado] = useState(null);
   const [tela, setTela] = useState("pokedex");
 
-  // Estado derivado: calculado a partir dos outros, não precisa de useState
   const pokemonsFiltrados = data.pokemon.filter((p) => {
     const textoOk =
       p.name.toLowerCase().includes(busca.toLowerCase()) ||
@@ -25,25 +27,23 @@ function App() {
 
   return (
     <>
-      <header>
-        <h1>Pokédex</h1>
-        <button onClick={() => setTela("pokedex")}>Pokédex</button>
-        <button onClick={() => setTela("treinadores")}>Treinadores</button>
-      </header>
-
+      <Header tela={tela} setTela={setTela} />
+      <main>
       {tela === "pokedex" ? (
         <>
           <SearchBar busca={busca} setBusca={setBusca} />
           <Filters
-            tipos={data.types}
+            tipos={data.types.filter(tipo => tipo.name.toLowerCase() !== "typeless")}
             tipoSelecionado={tipoSelecionado}
             setTipoSelecionado={setTipoSelecionado}
           />
           <PokemonList pokemons={pokemonsFiltrados} onSelecionar={setPokemonSelecionado} />
         </>
       ) : (
-        <p>Em breve...</p>
+        <TrainerList treinadores={data.trainers} pokemons={data.pokemon} onSelecionar={setPokemonSelecionado} />
       )}
+      </main>
+      {pokemonSelecionado && <PokemonDetails pokemon={pokemonSelecionado} onFechar={() => setPokemonSelecionado(null)} />}
     </>
   );
 }

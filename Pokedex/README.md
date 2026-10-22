@@ -1,16 +1,50 @@
-# React + Vite
+# Pokédex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Estrutura do código
 
-Currently, two official plugins are available:
+```text
+Pokedex/
+|----- src/
+|      |----- components/
+|      |      |----- Header.jsx          → Cabeçalho e navegação
+|      |      |----- SearchBar.jsx       → Campo de busca
+|      |      |----- Filters.jsx         → Filtro por tipo
+|      |      |----- PokemonList.jsx     → Lista de Pokémon
+|      |      |----- PokemonCard.jsx     → Card de cada Pokémon
+|      |      |----- PokemonCard.css     → Estilo dos cards
+|      |      |----- PokemonDetails.jsx  → Modal de detalhes
+|      |      |----- TrainerList.jsx     → Lista de treinadores e equipes
+|      |      |----- StatBar.jsx         → Estatísticas dos Pokémon
+|      |----- data/
+|      |      |----- pokedex-data.json   → Dados dos Pokémon, tipos e treinadores
+|      |----- App.jsx                   → Junta os componentes e controla as telas
+|      |----- main.jsx                  → Inicia o React
+|      |----- index.css                 → Estilos gerais
+|----- index.html                      → Página principal
+|----- package.json                    → Dependências e comandos
+|----- vite.config.js                  → Configuração do Vite
+|----- eslint.config.js                → Configuração da análise do código
+|----- README.md                       → Informações do projeto
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Como iniciar
 
-## React Compiler
+Com o Node.js instalado, abra o terminal na pasta do projeto que contém o arquivo `package.json` e execute:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```sh
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Abra no navegador o endereço que aparecer no terminal.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Funcionalidades
+
+- Exibir os 151 Pokémon da primeira geração em cards.
+- Pesquisar Pokémon pelo nome ou número.
+- Filtrar Pokémon por tipo.
+- Clicar em um Pokémon para ver seu nome, número, tipos e seis estatísticas.
+- Fechar os detalhes pelo botão ×, pela tecla Escape ou clicando fora.
+- Ver os treinadores, suas insígnias e seus Pokémon.
+- Clicar em um Pokémon da equipe de um treinador para abrir seus detalhes.
+- Adaptar a disposição dos cards ao tamanho da tela.

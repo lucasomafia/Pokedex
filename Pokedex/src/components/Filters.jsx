@@ -1,6 +1,6 @@
 function Filters({ tipos, tipoSelecionado, setTipoSelecionado }) {
   return (
-    <select
+    <select aria-label="Filtrar por tipo"
       value={tipoSelecionado}
       onChange={(e) => setTipoSelecionado(e.target.value)}
     >

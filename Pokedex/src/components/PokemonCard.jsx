@@ -1,11 +1,12 @@
 import StatBar from "./StatBar";
+import '../components/PokemonCard.css'
 
 function PokemonCard({ pokemon, onSelecionar }) {
   const s = pokemon.stats;
   const imagem = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
 
   return (
-    <div className="card" onClick={() => onSelecionar(pokemon)}>
+    <div className="card" role="button" tabIndex={0} aria-label={`Ver detalhes de ${pokemon.name}`} onClick={() => onSelecionar(pokemon)} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelecionar(pokemon); } }}>
       <img src={imagem} alt={pokemon.name} />
 
       <span className="card-id">#{pokemon.id}</span>
